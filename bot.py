@@ -6,6 +6,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 
 # from config import TOKEN
+# Токен получаем здесь https://t.me/BotFather
 TOKEN = os.getenv('TOKEN')
 
 logging.basicConfig(level=logging.INFO)
@@ -15,8 +16,11 @@ logging.basicConfig(level=logging.INFO)
 # - Бот принимает кириллицу отдаёт латиницу в соответствии с Приказом МИД по транслитерации
 # - Бот работает из-под docker контейнера
 
-# Объект бота и диспетчер
+# Создаем объект бота
 bot = Bot(token=TOKEN)
+
+# Создаем объект диспетчера
+# Все хэндлеры(обработчики) должны быть подключены к диспетчеру
 dp = Dispatcher()
 
 # Хэндлер на команду /start
@@ -27,6 +31,10 @@ async def send_welcome(message: types.Message):
     text = f"Hello, {user_name}!"
     logging.info(f"{user_name=} {user_id=} sent message: {message.text}")
     await message.reply(text)
+
+Обработчик будет пересылать полученное сообщение обратно отправителю
+
+По умолчанию обработчик сообщений будет обрабатывать все типы сообщений (например, текст, фото, стикер и т.д.)
 
 # Хэндлер на любые сообщения
 @dp.message()
