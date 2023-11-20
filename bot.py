@@ -6,7 +6,6 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 
 # from config import TOKEN
-# Токен получаем здесь https://t.me/BotFather
 TOKEN = os.getenv('TOKEN')
 
 logging.basicConfig(level=logging.INFO)
@@ -31,10 +30,6 @@ async def send_welcome(message: types.Message):
     text = f"Hello, {user_name}!"
     logging.info(f"{user_name=} {user_id=} sent message: {message.text}")
     await message.reply(text)
-
-Обработчик будет пересылать полученное сообщение обратно отправителю
-
-По умолчанию обработчик сообщений будет обрабатывать все типы сообщений (например, текст, фото, стикер и т.д.)
 
 # Хэндлер на любые сообщения
 @dp.message()
