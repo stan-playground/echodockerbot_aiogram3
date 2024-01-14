@@ -1,2 +1,2 @@
 # Telegram Bot + Docker
-Пример телеграм бота из видео
+The simplest example of using telegram-bot in a docker container
