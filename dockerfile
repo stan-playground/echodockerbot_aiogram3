@@ -1,5 +1,5 @@
-FROM python:3.11-slim
-ENV TOKEN='your_token'
+FROM python:3.10-slim
+ENV TOKEN='token from @BotFather'
 COPY . .
 RUN pip install -r requirements.txt
 ENTRYPOINT [ "python", "bot.py" ]
